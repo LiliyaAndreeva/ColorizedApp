@@ -24,16 +24,19 @@ class ViewController: UIViewController {
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupSliders()
         mainView.layer.cornerRadius = 20
-        mainView.backgroundColor = UIColor(red: CGFloat(redsSlider.value), green: CGFloat(greensSlider.value), blue: CGFloat(bluesSlider.value), alpha: CGFloat(alphasSlider.value))
+        
+        mainView.backgroundColor = UIColor(
+            red: CGFloat(redsSlider.value),
+            green: CGFloat(greensSlider.value),
+            blue: CGFloat(bluesSlider.value),
+            alpha: CGFloat(alphasSlider.value))
     }
     
     // MARK: - IB Action
-    
     @IBAction func forSlidersAction(_ sender: UISlider) {
-       
+        
         switch sender {
         case redsSlider:
             redsNumberLabel.text = String(format: "%.2f", redsSlider.value)
@@ -45,24 +48,26 @@ class ViewController: UIViewController {
         
         alphasNumberLabel.text = String(format: "%.2f", alphasSlider.value)
         
-        mainView.backgroundColor = UIColor(red: CGFloat(redsSlider.value), green: CGFloat(greensSlider.value), blue: CGFloat(bluesSlider.value), alpha: CGFloat(alphasSlider.value))
-        
+        mainView.backgroundColor = UIColor(
+            red: CGFloat(redsSlider.value),
+            green: CGFloat(greensSlider.value),
+            blue: CGFloat(bluesSlider.value),
+            alpha: CGFloat(alphasSlider.value))
     }
 }
-    //MARK: - Extension
-    extension ViewController {
-        
-        private func setupSliders() {
-            [redsSlider, greensSlider, bluesSlider, alphasSlider].forEach {
-                $0?.value = 0.5
-                $0?.minimumValue = 0
-                $0?.maximumValue = 1
-            }
-            redsSlider.minimumTrackTintColor = .red
-            greensSlider.minimumTrackTintColor = .green
-            bluesSlider.minimumTrackTintColor = .blue
-            alphasSlider.minimumTrackTintColor = .gray
-            
+
+//MARK: - Extension
+extension ViewController {
+    private func setupSliders() {
+        [redsSlider, greensSlider, bluesSlider, alphasSlider].forEach {
+            $0?.value = 0.5
+            $0?.minimumValue = 0
+            $0?.maximumValue = 1
         }
+        redsSlider.minimumTrackTintColor = .red
+        greensSlider.minimumTrackTintColor = .green
+        bluesSlider.minimumTrackTintColor = .blue
+        alphasSlider.minimumTrackTintColor = .gray
     }
+}
 
