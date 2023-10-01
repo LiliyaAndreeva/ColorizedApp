@@ -26,7 +26,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         setupSliders()
         mainView.layer.cornerRadius = 20
-        
         mainView.backgroundColor = UIColor(
             red: CGFloat(redsSlider.value),
             green: CGFloat(greensSlider.value),
@@ -42,11 +41,11 @@ class ViewController: UIViewController {
             redsNumberLabel.text = String(format: "%.2f", redsSlider.value)
         case greensSlider:
             greensNumberLabel.text = String(format: "%.2f", greensSlider.value)
-        default:
+        case bluesSlider:
             bluesNumberLabel.text = String(format: "%.2f", bluesSlider.value)
+        default:
+            alphasNumberLabel.text = String(format: "%.2f", alphasSlider.value)
         }
-        
-        alphasNumberLabel.text = String(format: "%.2f", alphasSlider.value)
         
         mainView.backgroundColor = UIColor(
             red: CGFloat(redsSlider.value),
